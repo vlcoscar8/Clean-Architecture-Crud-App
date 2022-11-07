@@ -1,12 +1,18 @@
 export class Http {
     private createHeaders(method, body) {
-        return {
+        const postRequest = {
             method,
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json'
             }
         }
+
+        const deleteRequest = {
+            method,
+        }
+
+        return method === 'POST' ? postRequest : deleteRequest
     }
 
     public async executed(url:string, method: string, body: object = {}) {

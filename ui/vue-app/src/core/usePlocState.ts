@@ -1,4 +1,4 @@
-import {onMounted, onUnmounted, readonly, ref} from "vue";
+import {onMounted, onUnmounted, reactive, readonly, ref} from "vue";
 
 export const usePlocState = (ploc) => {
     const state = ref(ploc.state)
@@ -14,6 +14,8 @@ export const usePlocState = (ploc) => {
     onUnmounted(() => {
         ploc.unsubscribe(stateSubscription)
     })
+
+
 
     return readonly(state)
 }

@@ -12,7 +12,7 @@ export class Ploc {
 
 
     public updateState(newState) {
-        this.internalState = newState
+        this.internalState = [...newState]
 
         if (this.listeners.length > 0) {
             this.listeners.forEach((listener) => listener(this.state))
